@@ -11,8 +11,11 @@
     </header>
     
     <section>
-        {% csrf_token %}
-        {{ task_form }}
+        <form action="{% url 'home' %}" method = "POST">
+            {% csrf_token %}
+            {{ task_form }}
+            <button type="submit">Send</button>
+        </form>
         <a href ="{% url 'outstanding_tasks' %}">outstanding tasks</a>
         <a href ="{% url 'completed_tasks' %}">completed tasks</a>
     </section>

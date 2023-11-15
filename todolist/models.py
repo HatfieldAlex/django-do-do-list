@@ -6,4 +6,4 @@ class Task(models.Model):
     completion_status = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.title
+        return self.item

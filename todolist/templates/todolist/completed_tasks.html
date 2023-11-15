@@ -3,19 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>To Do List</title>
 </head>
 <body>
     <header>
-        <!-- Site header content here -->
+        Complete Tasks
     </header>
     
-    <nav>
-        <!-- Navigation bar content here -->
-    </nav>
-    
     <section>
-        <!-- Main content section here -->
+        {% for task in tasks %}
+            {% if task.completion_status %}
+                <ul>
+                    {{ task.item }}
+                    <form action="{% url 'completed_tasks' %}" method = "POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="task_id" value="{{ task.id }}">
+                        <button type="submit">Remove</button>
+                    </form>               
+                </ul>
+            {% endif %}
+        {% endfor %}
+
     </section>
     
     <aside>
