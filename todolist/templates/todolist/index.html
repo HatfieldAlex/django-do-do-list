@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+</head>
+<body>
+    <header>
+        To Do list
+    </header>
+    
+    <section>
+        {% csrf_token %}
+        {{ task_form }}
+        <a href ="{% url 'outstanding_tasks' %}">outstanding tasks</a>
+        <a href ="{% url 'completed_tasks' %}">completed tasks</a>
+    </section>
+    
+    <aside>
+        <!-- Sidebar content here -->
+    </aside>
+    
+    <footer>
+        <!-- Footer content here -->
+    </footer>
+</body>
+</html>
